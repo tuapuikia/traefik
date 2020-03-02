@@ -358,7 +358,7 @@ func (a *ACME) renewCertificates() {
 					log.Warnf("Renewed certificate storage error: %v, retrying in %s", err, time)
 				}
 				ebo := backoff.NewExponentialBackOff()
-				ebo.MaxElapsedTime = 60 * time.Second
+				ebo.MaxElapsedTime = 30 * time.Second
 				err = backoff.RetryNotify(safe.OperationWithRecover(operation), ebo, notify)
 				if err != nil {
 					log.Errorf("Datastore cannot sync: %v", err)
