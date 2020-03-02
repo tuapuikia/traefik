@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/containous/traefik/integration/try"
+	"github.com/containous/traefik/v2/integration/try"
 	"github.com/go-check/check"
 	checker "github.com/vdemeester/shakers"
 )
@@ -26,7 +26,6 @@ func (s *ErrorPagesSuite) SetUpSuite(c *check.C) {
 }
 
 func (s *ErrorPagesSuite) TestSimpleConfiguration(c *check.C) {
-
 	file := s.adaptFile(c, "fixtures/error_pages/simple.toml", struct {
 		Server1 string
 		Server2 string
@@ -48,7 +47,6 @@ func (s *ErrorPagesSuite) TestSimpleConfiguration(c *check.C) {
 }
 
 func (s *ErrorPagesSuite) TestErrorPage(c *check.C) {
-
 	// error.toml contains a mis-configuration of the backend host
 	file := s.adaptFile(c, "fixtures/error_pages/error.toml", struct {
 		Server1 string
